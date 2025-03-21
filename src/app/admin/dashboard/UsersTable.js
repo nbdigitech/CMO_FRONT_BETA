@@ -189,7 +189,7 @@ export default function UsersTable() {
 
   const toggleStatus = async (id, currentStatus) => {
     try {
-      const response = await fetch(`https://167.86.74.16/update-user/${id}`, {
+      const response = await fetch(`https://167.86.74.16:5000/update-user/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: !currentStatus }),
@@ -244,7 +244,7 @@ export default function UsersTable() {
   // Fetch Users from Backend
   const fetchUsers = async () => {
     try {
-      const response = await fetch("https://167.86.74.16/users");
+      const response = await fetch("https://167.86.74.16:5000/users");
       const data = await response.json();
       setUsers(data);
     } catch (error) {
@@ -311,7 +311,7 @@ export default function UsersTable() {
     }
   }
     try {
-      const response = await fetch(`https://167.86.74.16/update-user/${editedUser._id}`, {
+      const response = await fetch(`https://167.86.74.16:5000/update-user/${editedUser._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editedUser),
@@ -359,7 +359,7 @@ export default function UsersTable() {
       return;
     }
     try {
-      const response = await fetch("https://167.86.74.16/add-staff", {
+      const response = await fetch("https://167.86.74.16:5000/add-staff", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newStaff),
