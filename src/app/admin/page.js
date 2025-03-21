@@ -61,7 +61,7 @@ export default function AuthPage() {
     }
   
     try {
-      const response = await fetch("https://167.86.74.16/login", {
+      const response = await fetch("http://167.86.74.16/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
