@@ -12,7 +12,7 @@ export default function DistrictsTab() {
   // Function to handle adding a district
 
   useEffect(() => {
-    fetch("https://cmophotos.in/districts")
+    fetch("http://167.86.74.16:5000/districts")
       .then((res) => res.json())
       .then((data) => setDistricts(data));
   }, []);
@@ -20,7 +20,7 @@ export default function DistrictsTab() {
   // Function to enable editing mode
   const handleAddDistrict = () => {
     if (districtName.trim() !== "") {
-      fetch("https://cmophotos.in/districts", {
+      fetch("http://167.86.74.16:5000/districts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: districtName })
@@ -40,7 +40,7 @@ export default function DistrictsTab() {
   };
   const handleSaveEdit = (index) => {
     if (editedName.trim() !== "" && index >= 0 && index < districts.length) {
-      fetch(`https://cmophotos.in/districts/${districts[index].name}`, {
+      fetch(`http://167.86.74.16:5000/districts/${districts[index].name}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: editedName }),
