@@ -30,7 +30,7 @@ const GalleryModal = ({ isOpen, setIsOpen, albumId, fetchPhotos }) => {
     setLoading(true); 
 
     try {
-      const response = await fetch(`https://cmophotos.in/upload-gallery/${albumId}`, {
+      const response = await fetch(`http://167.86.74.16:5000/upload-gallery/${albumId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ images: uploadedImages }),
