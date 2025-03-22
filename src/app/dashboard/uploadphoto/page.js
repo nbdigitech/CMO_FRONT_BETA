@@ -80,7 +80,7 @@ export default function UploadPhoto() {
 
         // Fetch photos by event (only if event is selected)
         if (eventSelect && eventSelect !== "Select Event") {
-            const eventResponse = await fetch("https://cmophotos.in/fetch-album-photos", {
+            const eventResponse = await fetch("http://167.86.74.16:5000/fetch-album-photos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 mode: "cors",
