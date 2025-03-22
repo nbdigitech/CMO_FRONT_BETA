@@ -349,7 +349,7 @@ const AllPhotos = ({ currentTab } ) => {
 
   const fetchAlbums = async () => {
     try {
-      const response = await fetch("https://167.86.74.16:5000/albums");
+      const response = await fetch("https://cmophotos.in/albums");
       if (!response.ok) {
         throw new Error("Failed to fetch albums");
       }
@@ -364,7 +364,7 @@ const AllPhotos = ({ currentTab } ) => {
   const fetchPhotos = async (album) => {
   if (!album || !album._id) return;
   try {
-    const response = await fetch(`https://167.86.74.16:5000/photos/${album._id}`);
+    const response = await fetch(`https://cmophotos.in/photos/${album._id}`);
     if (!response.ok) throw new Error("Failed to fetch photos");
     const data = await response.json();
     console.log("📸 Fetched Photos:", data);
@@ -381,7 +381,7 @@ const AllPhotos = ({ currentTab } ) => {
 
   const handleCreateAlbum = async (newAlbum) => {
     try {
-      const response = await fetch("https://167.86.74.16:5000/create-album", {
+      const response = await fetch("https://cmophotos.in/create-album", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newAlbum),
@@ -461,7 +461,7 @@ const handleSelectAll = () => {
         } else if (item._id) {
             // ✅ Item is an album
             try {
-                const response = await fetch(`https://167.86.74.16:5000/photos/${item._id}`);
+                const response = await fetch(`https://cmophotos.in/photos/${item._id}`);
                 if (!response.ok) throw new Error("Failed to fetch photos");
                 const data = await response.json();
 
@@ -502,7 +502,7 @@ const handleSelectAll = () => {
               }
 
               const response = await fetch(
-                `https://167.86.74.16:5000/photo/${selectedAlbum._id}/${photo.photo_id}`,
+                `https://cmophotos.in/photo/${selectedAlbum._id}/${photo.photo_id}`,
                 { method: "DELETE" }
               );
 
@@ -513,7 +513,7 @@ const handleSelectAll = () => {
             await fetchPhotos(selectedAlbum); // ✅ Refresh album after deletion
           } else {
             // Deleting albums
-            const response = await fetch("https://167.86.74.16:5000/delete-albums", {
+            const response = await fetch("https://cmophotos.in/delete-albums", {
               method: "DELETE",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ albumIds: selectedItems.map((album) => album._id) }),
