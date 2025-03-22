@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from '@/app/dashboard/components/Navbar';
 import Image from "next/image";
 import { FiShare, FiLink, FiDownload } from "react-icons/fi";
 
