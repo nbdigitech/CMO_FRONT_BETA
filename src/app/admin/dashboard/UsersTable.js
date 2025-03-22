@@ -171,7 +171,7 @@
 import React, { useState, useEffect } from "react";
 import Switch from "./Switch"; // Import your custom switch
 import "./ToggleSwitch.css"; // Ensure styles are applied
-
+import Navbar from '@/app/dashboard/components/Navbar';
 
 export default function UsersTable() {
   const [editIndex, setEditIndex] = useState(null);
