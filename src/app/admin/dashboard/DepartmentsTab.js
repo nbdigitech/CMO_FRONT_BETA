@@ -9,7 +9,7 @@ export default function DepartmentsTab() {
   const [editedName, setEditedName] = useState(""); // Store the edited name
 
   useEffect(() => {
-    fetch("https://cmophotos.in/departments")
+    fetch("http://167.86.74.16:5000/departments")
       .then((res) => res.json())
       .then((data) => setDepartments(data));
   }, []);
@@ -17,7 +17,7 @@ export default function DepartmentsTab() {
   // Function to handle adding a department
   const handleAddDepartment = () => {
     if (departmentName.trim() !== "") {
-      fetch("https://cmophotos.in/departments", {
+      fetch("http://167.86.74.16:5000/departments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: departmentName })
@@ -36,7 +36,7 @@ export default function DepartmentsTab() {
   // Function to save the edited department name
   const handleSaveEdit = (index) => {
     if (editedName.trim() !== "") {
-      fetch(`https://cmophotos.in/departments/${departments[index].name}`, {
+      fetch(`http://167.86.74.16:5000/departments/${departments[index].name}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: editedName })
@@ -50,7 +50,7 @@ export default function DepartmentsTab() {
   };
 
   const handleDelete = (name) => {
-    fetch(`https://cmophotos.in/departments/${name}`, { method: "DELETE" })
+    fetch(`http://167.86.74.16:5000/departments/${name}`, { method: "DELETE" })
       .then(() => setDepartments(departments.filter(d => d.name !== name)));
   };
 
