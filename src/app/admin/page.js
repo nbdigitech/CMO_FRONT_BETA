@@ -61,7 +61,7 @@ export default function AuthPage() {
     }
   
     try {
-      const response = await fetch("https://167.86.74.16:5000/login", {
+      const response = await fetch("https://cmophotos.in/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
