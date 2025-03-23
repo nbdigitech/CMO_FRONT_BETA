@@ -80,7 +80,7 @@ export default function UploadPhoto() {
 
         // Fetch photos by event (only if event is selected)
         if (eventSelect && eventSelect !== "Select Event") {
-            const eventResponse = await fetch("http://167.86.74.16:5000/fetch-album-photos", {
+            const eventResponse = await fetch("https://cmo-back-beta.onrender.com/fetch-album-photos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 mode: "cors",
@@ -96,7 +96,7 @@ export default function UploadPhoto() {
 
         // Fetch photos by date (only if date is selected)
         if (selectedDate) {
-            const dateResponse = await fetch("https://167.86.74.16/fetch-photos-by-date", {
+            const dateResponse = await fetch("https://cmo-back-beta.onrender.com/fetch-photos-by-date", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 mode: "cors",
@@ -218,7 +218,7 @@ export default function UploadPhoto() {
   const totalPages = Math.ceil(images.length / imagesPerPage);
 
   useEffect(() => {
-    fetch("https://167.86.74.16/get-events")
+    fetch("https://cmo-back-beta.onrender.com/get-events")
         .then((response) => response.json())
         .then((data) => setEvents(data))
         .catch((error) => console.error("Error fetching events:", error));
